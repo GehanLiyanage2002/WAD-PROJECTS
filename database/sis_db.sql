@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 02:51 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Aug 11, 2025 at 11:31 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,19 +38,7 @@ CREATE TABLE `academic_history` (
   `end_status` tinyint(3) NOT NULL DEFAULT 0 COMMENT '0=pending,\r\n1=Completed,\r\n2=Dropout,\r\n3=failed,\r\n4=Transferred-out,\r\n5=Graduated',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `academic_history`
---
-
-INSERT INTO `academic_history` (`id`, `student_id`, `course_id`, `semester`, `year`, `school_year`, `status`, `end_status`, `date_created`, `date_updated`) VALUES
-(1, 1, 11, 'First Semester', '1st Year', '2018-2019', 1, 1, '2022-01-27 13:02:36', '2022-01-27 13:22:31'),
-(2, 1, 11, 'Second Semester', '1st Year', '2018-2019', 2, 1, '2022-01-27 13:22:24', '2022-01-27 13:22:44'),
-(3, 1, 11, 'Third Semester', '1st Year', '2018-2019', 2, 1, '2022-01-27 13:23:32', NULL),
-(5, 1, 11, 'First Semester', '2nd Year', '2019-2020', 2, 1, '2022-01-27 13:28:01', NULL),
-(6, 1, 11, 'Second Semester', '2nd Year', '2019-2020', 2, 1, '2022-01-27 13:28:26', NULL),
-(7, 1, 11, 'Third Semester', '2nd Year', '2019-2020', 2, 2, '2022-01-27 13:28:52', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,25 +55,32 @@ CREATE TABLE `course_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_list`
 --
 
 INSERT INTO `course_list` (`id`, `department_id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(1, 2, 'BSIT', 'Bachelor of Science in Information Technology', 1, 0, '2022-01-27 10:03:25', NULL),
-(2, 4, 'BEEd', 'Bachelor of Elementary Education', 1, 0, '2022-01-27 10:06:43', NULL),
-(3, 4, 'BSEd', 'Bachelor of Secondary Education', 1, 0, '2022-01-27 10:07:21', NULL),
-(4, 4, 'MAEd', 'Master of Arts in Education', 1, 0, '2022-01-27 10:07:52', NULL),
-(5, 4, 'PhD Educ', 'Doctor of Philosophy in Education', 1, 0, '2022-01-27 10:08:21', NULL),
-(6, 1, 'BSCE', 'Bachelor of Science in Civil Engineering', 1, 0, '2022-01-27 10:08:48', NULL),
-(7, 1, 'MSCE', 'Master of Science in Civil Engineering', 1, 0, '2022-01-27 10:09:00', NULL),
-(8, 1, 'BS ChE', 'Bachelor of Science in Chemical Engineering', 1, 0, '2022-01-27 10:09:35', NULL),
-(9, 1, 'MS ChE', 'Master of Science in Chemical Engineering', 1, 0, '2022-01-27 10:10:16', NULL),
-(10, 1, 'DEngg ChE', 'Doctor of Engineering (Chemical Engineering)', 1, 0, '2022-01-27 10:10:39', NULL),
-(11, 1, 'BSCS', 'Bachelor of Science in Computer Science', 1, 0, '2022-01-27 10:12:23', NULL),
-(12, 1, 'MSCS', 'Master of Science in Computer Science', 1, 0, '2022-01-27 10:12:35', NULL);
+(1, 2, 'BSIT', 'Bachelor of Science in Information Technology', 1, 1, '2022-01-27 10:03:25', '2025-08-05 11:09:45'),
+(2, 4, 'BEEd', 'Bachelor of Elementary Education', 1, 1, '2022-01-27 10:06:43', '2025-08-05 11:09:30'),
+(3, 4, 'BSEd', 'Bachelor of Secondary Education', 1, 1, '2022-01-27 10:07:21', '2025-08-05 11:09:42'),
+(4, 4, 'MAEd', 'Master of Arts in Education', 1, 1, '2022-01-27 10:07:52', '2025-08-05 11:09:50'),
+(5, 4, 'PhD Educ', 'Doctor of Philosophy in Education', 1, 1, '2022-01-27 10:08:21', '2025-08-05 11:10:04'),
+(6, 1, 'BSCE', 'Bachelor of Science in Civil Engineering', 1, 1, '2022-01-27 10:08:48', '2025-08-05 11:09:36'),
+(7, 1, 'MSCE', 'Master of Science in Civil Engineering', 1, 1, '2022-01-27 10:09:00', '2025-08-05 11:09:57'),
+(8, 1, 'BS ChE', 'Bachelor of Science in Chemical Engineering', 1, 1, '2022-01-27 10:09:35', '2025-08-05 11:09:33'),
+(9, 1, 'MS ChE', 'Master of Science in Chemical Engineering', 1, 1, '2022-01-27 10:10:16', '2025-08-05 11:09:53'),
+(10, 1, 'DEngg ChE', 'Doctor of Engineering (Chemical Engineering)', 1, 1, '2022-01-27 10:10:39', '2025-08-05 11:09:47'),
+(11, 1, 'BSCS', 'Bachelor of Science in Computer Science', 1, 1, '2022-01-27 10:12:23', '2025-08-05 11:09:39'),
+(12, 1, 'MSCS', 'Master of Science in Computer Science', 1, 1, '2022-01-27 10:12:35', '2025-08-05 11:10:01'),
+(13, 7, 'Bio Systems Technology Degree Program', 'It offers practical and research-based education to develop sustainable solutions using innovations in biotechnology, bioinstrumentation, and systems engineering.', 1, 0, '2025-08-05 11:37:41', NULL),
+(14, 8, 'Engineering Technology Degree Program  ', 'The degree prepares students to become skilled technologists capable of solving industry-related challenges through innovation and technical expertise.', 1, 0, '2025-08-05 11:38:21', NULL),
+(15, 9, ' Information and Communication Technology Degree Program   ', 'It equips students with practical skills and theoretical knowledge to design, implement, and manage modern ICT solutions. The department aims to produce competent professionals who can drive innovation in areas such as software engineering, cybersecurity, data science, and emerging technologies.', 1, 0, '2025-08-05 11:39:26', NULL),
+(16, 10, 'Mineral Resources and Technology Degree Program', 'The degree prepares students to address real-world challenges like natural disasters, mineral exploration, and environmental sustainability through fieldwork, research, and technology-based solutions.', 1, 0, '2025-08-05 12:25:14', NULL),
+(17, 11, 'Science and Technology Degree Program  ', 'The degree aims to develop analytical, research, and problem-solving skills in students, preparing them to contribute to scientific advancement and technological development across various industries.', 1, 0, '2025-08-05 12:25:48', NULL),
+(18, 12, 'Computer Science and Technology Degree Program  ', 'The degree aims to equip students with the knowledge and skills needed to design innovative software solutions, analyze complex data, and contribute to advancements in computer science and digital technology.', 1, 0, '2025-08-05 12:26:16', NULL),
+(19, 12, 'Industrial Information Technology Degree Program', 'The degree aims to equip students with the knowledge and skills needed to design innovative software solutions, analyze complex data, and contribute to advancements in computer science and digital technology.', 1, 0, '2025-08-05 12:26:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -101,19 +96,25 @@ CREATE TABLE `department_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `department_list`
 --
 
 INSERT INTO `department_list` (`id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(1, 'CoEng', 'College of Engineering', 1, 0, '2022-01-27 09:22:31', '2022-01-27 09:33:36'),
-(2, 'CoAS', 'College of Arts and Science', 1, 0, '2022-01-27 09:22:54', '2022-01-27 09:33:03'),
-(3, 'CoB', 'College of Business', 1, 0, '2022-01-27 09:23:20', '2022-01-27 09:33:11'),
-(4, 'CoE', 'College of Education', 1, 0, '2022-01-27 09:25:42', '2022-01-27 09:33:18'),
-(5, 'CSSP', 'College of Social Sciences and Philosophy', 1, 0, '2022-01-27 09:26:35', '2022-01-27 09:33:49'),
-(6, 'Sample101', 'Deleted Department', 1, 1, '2022-01-27 09:27:17', '2022-01-27 09:27:28');
+(1, 'CoEng', 'College of Engineering', 1, 1, '2022-01-27 09:22:31', '2025-08-05 11:09:20'),
+(2, 'CoAS', 'College of Arts and Science', 1, 1, '2022-01-27 09:22:54', '2025-08-05 11:09:09'),
+(3, 'CoB', 'College of Business', 1, 1, '2022-01-27 09:23:20', '2025-08-05 11:09:12'),
+(4, 'CoE', 'College of Education', 1, 1, '2022-01-27 09:25:42', '2025-08-05 11:09:15'),
+(5, 'CSSP', 'College of Social Sciences and Philosophy', 1, 1, '2022-01-27 09:26:35', '2025-08-05 11:09:23'),
+(6, 'Sample101', 'Deleted Department', 1, 1, '2022-01-27 09:27:17', '2022-01-27 09:27:28'),
+(7, 'Department of Biosystems Technology', 'The Department of Biosystems Technology focuses on the integration of biological sciences with modern technology to solve real-world problems in agriculture, environment, food production, and bioengineering.', 1, 0, '2025-08-05 11:25:25', NULL),
+(8, 'Department of Engineering Technology', 'The Department of Engineering Technology provides hands-on, application-oriented education in various engineering fields. It bridges the gap between theoretical engineering concepts and practical implementation, focusing on areas such as mechanical, electrical, civil, and electronic technologies.', 1, 0, '2025-08-05 11:26:06', NULL),
+(9, 'Department of Information and Communication Technology', 'The Department of Information and Communication Technology (ICT) focuses on the study and application of computer systems, software development, networking, and digital communication. It equips students with practical skills and theoretical knowledge to design, implement, and manage modern ICT solutions.', 1, 0, '2025-08-05 11:26:53', NULL),
+(10, 'Department of Applied Earth Sciences', 'The Department of Applied Earth Sciences focuses on the scientific study of the Earth’s structure, resources, and processes, with a strong emphasis on practical applications. It covers areas such as geology, geophysics, environmental science, and natural resource management. ', 1, 0, '2025-08-05 12:22:41', NULL),
+(11, 'Department of Science And Technology', 'The Department of Science and Technology offers a multidisciplinary approach to understanding and applying scientific principles and technological innovations. It encompasses a wide range of fields such as physics, chemistry, mathematics, and emerging technologies.', 1, 0, '2025-08-05 12:23:19', NULL),
+(12, 'Department of Computer Science and Informatics', 'The Department of Computer Science and Informatics focuses on the theoretical foundations and practical applications of computing and information systems. It covers key areas such as algorithms, programming, data structures, artificial intelligence, databases, and human-computer interaction. ', 1, 0, '2025-08-05 12:24:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -136,14 +137,7 @@ CREATE TABLE `student_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `student_list`
---
-
-INSERT INTO `student_list` (`id`, `roll`, `firstname`, `middlename`, `lastname`, `gender`, `contact`, `present_address`, `permanent_address`, `dob`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(1, '231415061007', 'Mark', 'D', 'Cooper', 'Male', '09123456789', 'This my sample present address.', 'This my sample permanent address.', '2007-06-23', 1, 0, '2022-01-27 11:14:07', '2022-01-28 08:50:13');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -155,16 +149,15 @@ CREATE TABLE `system_info` (
   `id` int(30) NOT NULL,
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_info`
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Student Information System'),
-(6, 'short_name', 'SIS - PHP'),
-(11, 'logo', 'uploads/logo-1643245863.png'),
+(1, 'name', 'UVA Student Information System'),
+(6, 'short_name', 'UVA_SIS'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
 (14, 'cover', 'uploads/cover-1643245863.png');
 
@@ -187,7 +180,7 @@ CREATE TABLE `users` (
   `status` int(1) NOT NULL DEFAULT 1 COMMENT '0=not verified, 1 = verified',
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -254,13 +247,13 @@ ALTER TABLE `academic_history`
 -- AUTO_INCREMENT for table `course_list`
 --
 ALTER TABLE `course_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `department_list`
 --
 ALTER TABLE `department_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `student_list`
