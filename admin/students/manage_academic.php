@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
                 <select name="semester" id="semester" class="form-control form-control-sm  form-control-border rounded-0" required>
                     <option <?= !isset($semester) || (isset($semester) && $semester == 'First Semester') ? 'selected' : '' ?>>First Semester</option>
                     <option <?= (isset($semester) && $semester == 'Second Semester') ? 'selected' : '' ?>>Second Semester</option>
-                    <option <?= (isset($semester) && $semester == 'Third Semester') ? 'selected' : '' ?>>Third Semester</option>
+                    
                 </select>
             </div>
             <div class="form-group col-md-6">
@@ -63,8 +63,7 @@ if(isset($_GET['id'])){
                 <select name="status" class="form-control form-control-sm form-control-border rounded-0" required>
                     <option value="1" <?= (isset($status) && $status == 1) ? 'selected' : '' ?>>New</option>
                     <option value="2" <?= (isset($status) && $status == 2) ? 'selected' : '' ?>>Regular</option>
-                    <option value="3" <?= (isset($status) && $status == 3) ? 'selected' : '' ?>>Returnee</option>
-                    <option value="4" <?= (isset($status) && $status == 4) ? 'selected' : '' ?>>Transferee</option>
+                    
                 </select>
             </div>
             <div class="col-md-6 form-group">
@@ -72,9 +71,7 @@ if(isset($_GET['id'])){
                 <select name="end_status" class="form-control form-control-sm form-control-border rounded-0" required>
                     <option value="0" <?= (isset($end_status) && $end_status == 0) ? 'selected' : '' ?>>Pending</option>
                     <option value="1" <?= (isset($end_status) && $end_status == 1) ? 'selected' : '' ?>>Completed</option>
-                    <option value="2" <?= (isset($end_status) && $end_status == 2) ? 'selected' : '' ?>>Dropout</option>
                     <option value="3" <?= (isset($end_status) && $end_status == 3) ? 'selected' : '' ?>>Failed</option>
-                    <option value="4" <?= (isset($end_status) && $end_status == 4) ? 'selected' : '' ?>>Transferred Out</option>
                     <option value="5" <?= (isset($end_status) && $end_status == 5) ? 'selected' : '' ?>>Graduated</option>
                 </select>
             </div>

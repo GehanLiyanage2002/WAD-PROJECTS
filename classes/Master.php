@@ -17,7 +17,6 @@ Class Master extends DBConnection {
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
 			return json_encode($resp);
-			exit;
 		}
 	}
 	function save_department(){
